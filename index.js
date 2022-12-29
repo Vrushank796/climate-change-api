@@ -90,4 +90,11 @@ app.get('/news/:newspaperId', (req, res) => {
     });
 });
 
+app.get('*', function (req, res) {
+  res.status(404).json({
+    'NOT_FOUND (404)':
+      'The requested operation failed because a resource associated with the request could not be found.',
+  });
+});
+
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
