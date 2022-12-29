@@ -1,10 +1,13 @@
-const PORT = 8000;
+//Import required libraries
 const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const PORT = 8000;
 
+//Initializing express app
 const app = express();
 
+//Collection of Newspapers
 const newspapers = [
   {
     name: 'newyorktimes',
@@ -28,8 +31,10 @@ const newspapers = [
   },
 ];
 
+//Collection of Articles
 const articles = [];
 
+//To fetch all news from different newspapers
 newspapers.forEach((newspaper) => {
   axios
     .get(newspaper.address)
@@ -51,6 +56,7 @@ newspapers.forEach((newspaper) => {
     });
 });
 
+//Display message on home
 app.get('/', (req, res) => {
   res.json('Welcome to my Climate Change News API');
 });
@@ -90,6 +96,7 @@ app.get('/news/:newspaperId', (req, res) => {
     });
 });
 
+//Handle incorrect routes
 app.get('*', function (req, res) {
   res.status(404).json({
     'NOT_FOUND (404)':
@@ -97,4 +104,5 @@ app.get('*', function (req, res) {
   });
 });
 
+//Server listening to port
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
