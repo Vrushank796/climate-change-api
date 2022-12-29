@@ -10,11 +10,6 @@ const app = express();
 //Collection of Newspapers
 const newspapers = [
   {
-    name: 'newyorktimes',
-    address: 'https://www.nytimes.com/ca/section/climate',
-    base: '',
-  },
-  {
     name: 'thetimes',
     address: 'https://www.thetimes.co.uk/environment/climate-change',
     base: '',
