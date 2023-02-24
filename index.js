@@ -53,7 +53,16 @@ newspapers.forEach((newspaper) => {
 
 //Display message on home
 app.get('/', (req, res) => {
-  res.json('Welcome to my Climate Change News API');
+  res.send('<h1> Welcome to my Climate Change News API \nAn API showing all the latest Climate Change News around the world.</h1>
+
+<div>To explore all news channels: https://climate-change-api-3fd7.onrender.com/news</div>
+
+<div>To explore The Times: https://climate-change-api-3fd7.onrender.com/news/thetimes</div> 
+
+<div>To explore The Guardian: https://climate-change-api-3fd7.onrender.com/news/theguardian</div> 
+
+<div>To explore The Telegraph: https://climate-change-api-3fd7.onrender.com/news/thetelegraph</div> 
+');
 });
 
 //Fetch the muliple news sources
